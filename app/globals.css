@@ -1,0 +1,126 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to healthcare blue/cyan color scheme */
+  --background: #ffffff; /* White background */
+  --foreground: #164e63; /* Cyan-800 primary text */
+  --card: #ecfeff; /* Light cyan card background */
+  --card-foreground: #475569; /* Dark gray text on cards */
+  --popover: #ffffff; /* White popover background */
+  --popover-foreground: #164e63; /* Cyan-800 text in popovers */
+  --primary: #164e63; /* Cyan-800 primary action color */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: #00bcd4; /* Light cyan secondary color */
+  --secondary-foreground: #ffffff; /* White text on secondary */
+  --muted: #f1f5f9; /* Light gray muted backgrounds */
+  --muted-foreground: #475569; /* Dark gray muted text */
+  --accent: #00bcd4; /* Light cyan accent color */
+  --accent-foreground: #ffffff; /* White text on accent */
+  --destructive: #ea580c; /* Orange for errors */
+  --destructive-foreground: #ffffff; /* White text on destructive */
+  --border: #e2e8f0; /* Light border color */
+  --input: #f1f5f9; /* Light gray input background */
+  --ring: rgba(22, 78, 99, 0.5); /* Cyan focus ring */
+  --chart-1: #164e63;
+  --chart-2: #00bcd4;
+  --chart-3: #475569;
+  --chart-4: #ecfeff;
+  --chart-5: #ffffff;
+  --radius: 0.5rem;
+  --sidebar: #ecfeff; /* Light cyan sidebar */
+  --sidebar-foreground: #164e63; /* Cyan-800 sidebar text */
+  --sidebar-primary: #ffffff; /* White sidebar primary */
+  --sidebar-primary-foreground: #164e63; /* Cyan-800 sidebar primary text */
+  --sidebar-accent: #00bcd4; /* Light cyan sidebar accent */
+  --sidebar-accent-foreground: #ffffff; /* White sidebar accent text */
+  --sidebar-border: #e2e8f0; /* Light border for sidebar */
+  --sidebar-ring: rgba(22, 78, 99, 0.5); /* Cyan focus ring for sidebar */
+}
+
+.dark {
+  --background: #0f172a; /* Dark slate background */
+  --foreground: #ecfeff; /* Light cyan text */
+  --card: #1e293b; /* Dark slate card */
+  --card-foreground: #ecfeff; /* Light cyan card text */
+  --popover: #1e293b; /* Dark slate popover */
+  --popover-foreground: #ecfeff; /* Light cyan popover text */
+  --primary: #00bcd4; /* Light cyan primary in dark mode */
+  --primary-foreground: #0f172a; /* Dark text on primary */
+  --secondary: #334155; /* Slate secondary */
+  --secondary-foreground: #ecfeff; /* Light cyan secondary text */
+  --muted: #334155; /* Slate muted */
+  --muted-foreground: #94a3b8; /* Light slate muted text */
+  --accent: #334155; /* Slate accent */
+  --accent-foreground: #ecfeff; /* Light cyan accent text */
+  --destructive: #f97316; /* Orange destructive */
+  --destructive-foreground: #ecfeff; /* Light cyan destructive text */
+  --border: #334155; /* Slate border */
+  --input: #334155; /* Slate input */
+  --ring: rgba(0, 188, 212, 0.5); /* Light cyan focus ring */
+  --chart-1: #00bcd4;
+  --chart-2: #164e63;
+  --chart-3: #475569;
+  --chart-4: #ecfeff;
+  --chart-5: #ffffff;
+  --sidebar: #1e293b; /* Dark slate sidebar */
+  --sidebar-foreground: #ecfeff; /* Light cyan sidebar text */
+  --sidebar-primary: #00bcd4; /* Light cyan sidebar primary */
+  --sidebar-primary-foreground: #0f172a; /* Dark sidebar primary text */
+  --sidebar-accent: #334155; /* Slate sidebar accent */
+  --sidebar-accent-foreground: #ecfeff; /* Light cyan sidebar accent text */
+  --sidebar-border: #334155; /* Slate sidebar border */
+  --sidebar-ring: rgba(0, 188, 212, 0.5); /* Light cyan sidebar focus ring */
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
