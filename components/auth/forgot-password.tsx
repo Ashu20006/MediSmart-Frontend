@@ -1,5 +1,5 @@
 "use client"
-
+import API_BASE_URL from "@/config/api";
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -25,12 +25,14 @@ export function ForgotPassword() {
     setErrorMessage("")
     setSuccessMessage("")
     
-    try {
-      const response = await fetch("http://localhost:8080/api/auth/forgot-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      })
+
+try {
+  const response = await fetch(`${API_BASE_URL}/api/auth/forgot-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+
 
       const data = await response.json()
 
@@ -53,7 +55,7 @@ export function ForgotPassword() {
     setSuccessMessage("")
     
     try {
-      const response = await fetch("http://localhost:8080/api/auth/verify-otp", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),
@@ -85,7 +87,7 @@ export function ForgotPassword() {
     setSuccessMessage("")
     
     try {
-      const response = await fetch("http://localhost:8080/api/auth/reset-password", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp, newPassword }),

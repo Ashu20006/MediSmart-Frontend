@@ -1,5 +1,5 @@
 "use client";
-
+import API_BASE_URL from "@/config/api";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -35,7 +35,7 @@ export default function withAuth(Component: React.ComponentType) {
       if (!storedUser || !storedRole) {
         (async () => {
           try {
-            const res = await fetch("http://localhost:8080/api/auth/me", {
+            const res = await fetch(`${API_BASE_URL}/api/auth/me`, {
               headers: { Authorization: `Bearer ${token}` },
               credentials: "include",
             });

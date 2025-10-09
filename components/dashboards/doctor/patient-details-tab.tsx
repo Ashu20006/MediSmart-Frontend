@@ -1,5 +1,5 @@
 "use client"
-
+import API_BASE_URL from "@/config/api";
 import { useEffect, useMemo, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -34,7 +34,7 @@ export function PatientDetailsTab() {
           return
         }
 
-        const res = await fetch(`http://localhost:8080/api/appointments/doctor/${doctorId}`, {
+        const res = await fetch(`${API_BASE_URL}/api/appointments/doctor/${doctorId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         if (!res.ok) {

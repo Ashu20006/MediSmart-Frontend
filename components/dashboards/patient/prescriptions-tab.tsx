@@ -1,5 +1,5 @@
 "use client"
-
+import API_BASE_URL from "@/config/api";
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -41,7 +41,7 @@ export function PrescriptionsTab() {
         if (!token) throw new Error("User not logged in")
 
         // Fetch user info
-        const userRes = await fetch("http://localhost:8080/api/auth/me", {
+        const userRes = await fetch(`${API_BASE_URL}/api/auth/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -51,7 +51,7 @@ export function PrescriptionsTab() {
         setUser(currentUser)
 
         // Fetch prescriptions
-        const presRes = await fetch(`http://localhost:8080/api/records/patient/${currentUser.id}`, {
+        const presRes = await fetch(`${API_BASE_URL}/api/records/patient/${currentUser.id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

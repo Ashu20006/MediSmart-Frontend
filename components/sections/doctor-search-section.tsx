@@ -1,5 +1,5 @@
 "use client"
-
+import API_BASE_URL from "@/config/api";
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -27,7 +27,7 @@ export function DoctorSearchSection() {
 
   // Fetch unique locations from API
   useEffect(() => {
-    fetch("http://localhost:8080/api/recommendations/locations")
+    fetch(`${API_BASE_URL}/api/recommendations/locations`)
       .then((res) => res.json())
       .then((data) => {
         setLocations(data);
@@ -47,7 +47,7 @@ export function DoctorSearchSection() {
       const normalizedAvailability = availability.toLowerCase().trim()
 
       const res = await fetch(
-        `http://localhost:8080/api/recommendations/doctors?location=${encodeURIComponent(
+        `${API_BASE_URL}/api/recommendations/doctors?location=${encodeURIComponent(
           normalizedLocation
         )}&specialty=${encodeURIComponent(normalizedSpecialty)}&availability=${encodeURIComponent(
           normalizedAvailability

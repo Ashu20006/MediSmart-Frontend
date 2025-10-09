@@ -1,5 +1,5 @@
 "use client"
-
+import API_BASE_URL from "@/config/api";
 import { useState, useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { DoctorSidebar } from "@/components/dashboards/doctor-sidebar"
@@ -29,7 +29,7 @@ export function DoctorDashboard() {
         const token = localStorage.getItem("token")
         if (!token) return
 
-        const response = await fetch("http://localhost:8080/api/auth/me", {
+        const response = await fetch(`${API_BASE_URL}/api/auth/me`, {
           method: "GET",
           headers: {
             "Authorization": `Bearer ${token}`,

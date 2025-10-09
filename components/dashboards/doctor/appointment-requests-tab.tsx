@@ -1,4 +1,5 @@
 "use client"
+import API_BASE_URL from "@/config/api";
 import { useEffect, useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -34,7 +35,7 @@ export function AppointmentRequestsTab() {
           return
         }
 
-        const res = await fetch(`http://localhost:8080/api/appointments/doctor/${doctorId}`, {
+        const res = await fetch(`${API_BASE_URL}/api/appointments/doctor/${doctorId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         if (!res.ok) {
@@ -106,7 +107,7 @@ export function AppointmentRequestsTab() {
     try {
       const token = localStorage.getItem("token") || ""
       const res = await fetch(
-        `http://localhost:8080/api/appointments/${appointmentId}/status?status=${newStatus}`,
+        `${API_BASE_URL}/api/appointments/${appointmentId}/status?status=${newStatus}`,
         {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },

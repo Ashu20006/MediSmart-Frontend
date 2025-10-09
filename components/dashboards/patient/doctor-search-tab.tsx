@@ -1,5 +1,5 @@
 "use client"
-
+import API_BASE_URL from "@/config/api";
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -32,7 +32,7 @@ export function DoctorSearchTab() {
 
   // Fetch unique locations
   useEffect(() => {
-    fetch("http://localhost:8080/api/recommendations/locations")
+    fetch(`${API_BASE_URL}/api/recommendations/locations`)
       .then((res) => res.json())
       .then((data) => setLocations(data))
       .catch((err) => console.error("Failed to fetch locations:", err))
@@ -41,7 +41,7 @@ export function DoctorSearchTab() {
   const handleSearch = async () => {
     try {
       const res = await fetch(
-        `http://localhost:8080/api/recommendations/doctors?location=${encodeURIComponent(
+        `${API_BASE_URL}/api/recommendations/doctors?location=${encodeURIComponent(
           selectedLocation.trim()
         )}&specialty=${encodeURIComponent(selectedSpecialty.trim())}&availability=${encodeURIComponent(
           availability.trim()
@@ -88,7 +88,7 @@ export function DoctorSearchTab() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/api/appointments/book", {
+      const res = await fetch(`${API_BASE_URL}/api/appointments/book`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

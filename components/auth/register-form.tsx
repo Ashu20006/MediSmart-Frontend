@@ -1,5 +1,5 @@
 "use client"
-
+import API_BASE_URL from "@/config/api";
 import type React from "react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -39,6 +39,32 @@ export function RegisterForm() {
   
   const router = useRouter()
   const { toast } = useToast()
+
+  // Define specialties and availability options
+  const specialties = [
+    "Cardiology",
+    "Dermatology",
+    "Endocrinology",
+    "Gastroenterology",
+    "Neurology",
+    "Oncology",
+    "Orthopedics",
+    "Pediatrics",
+    "Psychiatry",
+    "Radiology",
+    "Urology",
+    "Other"
+  ]
+
+  const availabilityOptions = [
+    "Monday",
+    "Tuesday",
+    "Wesnesday",
+    "Thursday",
+    "Friday",
+    "Sataurday",
+    "Sunday"
+  ]
 
   // Validate password strength
   const validatePassword = (password: string): string[] => {
@@ -148,7 +174,7 @@ export function RegisterForm() {
         payload.age = Number(formData.age)
       }
 
-      const response = await fetch("http://localhost:8080/api/auth/register", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -294,13 +320,21 @@ export function RegisterForm() {
             <>
               <div className="space-y-2">
                 <Label htmlFor="specialty">Specialty</Label>
-                <Input
-                  id="specialty"
-                  placeholder="e.g. Cardiology"
+                <Select 
+                  onValueChange={(value) => setFormData({ ...formData, specialty: value })}
                   value={formData.specialty}
-                  onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
-                  required
-                />
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select specialty" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {specialties.map((specialty) => (
+                      <SelectItem key={specialty} value={specialty}>
+                        {specialty}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="space-y-2">
@@ -328,12 +362,21 @@ export function RegisterForm() {
 
               <div className="space-y-2">
                 <Label htmlFor="availability">Availability</Label>
-                <Input
-                  id="availability"
-                  placeholder="e.g. Mon-Fri, 9AM-5PM"
+                <Select 
+                  onValueChange={(value) => setFormData({ ...formData, availability: value })}
                   value={formData.availability}
-                  onChange={(e) => setFormData({ ...formData, availability: e.target.value })}
-                />
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select availability" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {availabilityOptions.map((option) => (
+                      <SelectItem key={option} value={option}>
+                        {option}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="space-y-2">

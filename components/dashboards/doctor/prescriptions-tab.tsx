@@ -1,5 +1,5 @@
 "use client"
-
+import API_BASE_URL from "@/config/api";
 import type React from "react"
 import { useEffect, useMemo, useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -39,7 +39,7 @@ export function PrescriptionsTab() {
         }
 
         // ✅ Fetch doctor's appointments
-        const apptRes = await fetch(`http://localhost:8080/api/appointments/doctor/${doctorId}`, {
+        const apptRes = await fetch(`${API_BASE_URL}/api/appointments/doctor/${doctorId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         if (apptRes.ok) {
@@ -48,7 +48,7 @@ export function PrescriptionsTab() {
         }
 
         // ✅ Fetch doctor's prescriptions
-        const recentRes = await fetch(`http://localhost:8080/api/records/doctor/${doctorId}`, {
+        const recentRes = await fetch(`${API_BASE_URL}/api/records/doctor/${doctorId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         if (recentRes.ok) {
@@ -94,7 +94,7 @@ export function PrescriptionsTab() {
       }
 
       // ✅ Correct API for creation
-      const res = await fetch("http://localhost:8080/api/records/create", {
+      const res = await fetch("${API_BASE_URL}/api/records/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -122,7 +122,7 @@ export function PrescriptionsTab() {
       const storedUser = localStorage.getItem("user")
       const doctorId = storedUser ? JSON.parse(storedUser)?.id : null
       if (doctorId) {
-        const recentRes = await fetch(`http://localhost:8080/api/records/doctor/${doctorId}`, {
+        const recentRes = await fetch(`${API_BASE_URL}/api/records/doctor/${doctorId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         if (recentRes.ok) setRecent(await recentRes.json())
