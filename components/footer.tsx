@@ -35,22 +35,22 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <Link href="/about" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
+              <Link href="#about" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
                 About Us
               </Link>
               <Link
-                href="/services"
+                href="#services"
                 className="block text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 Our Services
               </Link>
               <Link
-                href="/doctors"
+                href="#doctor-search"
                 className="block text-muted-foreground hover:text-primary transition-colors text-sm"
               >
                 Find Doctors
               </Link>
-              <Link href="/faq" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
+              <Link href="#faq" className="block text-muted-foreground hover:text-primary transition-colors text-sm">
                 FAQ
               </Link>
             </div>

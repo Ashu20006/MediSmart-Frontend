@@ -109,7 +109,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Phone Support</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">+91 805 242 3352</p>
                     <p className="text-sm text-muted-foreground">Available 24/7 for emergencies</p>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email Support</h3>
-                    <p className="text-muted-foreground">support@medismart.com</p>
+                    <p className="text-muted-foreground">fromashu8052@gmail.com</p>
                     <p className="text-sm text-muted-foreground">We'll respond within 24 hours</p>
                   </div>
                 </div>
@@ -139,8 +139,8 @@ export function ContactSection() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Office Location</h3>
-                    <p className="text-muted-foreground">123 Healthcare Avenue</p>
-                    <p className="text-muted-foreground">Medical City, MC 12345</p>
+                    <p className="text-muted-foreground">Greater Noida</p>
+                    <p className="text-muted-foreground">Knowledge Park, 201306</p>
                   </div>
                 </div>
               </CardContent>

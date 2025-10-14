@@ -44,15 +44,9 @@ export function RegisterForm() {
   const specialties = [
     "Cardiology",
     "Dermatology",
-    "Endocrinology",
-    "Gastroenterology",
+    "pediatrics",
     "Neurology",
-    "Oncology",
     "Orthopedics",
-    "Pediatrics",
-    "Psychiatry",
-    "Radiology",
-    "Urology",
     "Other"
   ]
 
